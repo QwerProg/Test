@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clash of Clans 玩家信息查询</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Clash of Clans 玩家信息查询</h1>
+    <div class="search-area">
+        <input type="text" id="playerTagInput" placeholder="输入玩家标签 (例如: #2UJ2JVCGC)">
+        <button id="fetchButton">查询</button>
+    </div>
+
+    <div id="loadingIndicator" style="display:none;">正在加载...</div>
+    <div id="errorDisplay" class="error-message" style="display:none;"></div>
+    <div id="playerDataDisplay" class="player-data">
+    </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

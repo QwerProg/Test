@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>玩家信息</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/> </head>
+<body>
+<div class="container" th:if="${player != null}">
+    <h1>玩家: <span th:text="${player.name}">玩家名称</span> (<span th:text="${player.tag}">玩家标签</span>)</h1>
+    <p>大本营等级: <span th:text="${player.townHallLevel}"></span></p>
+    <p>奖杯: <span th:text="${player.trophies}"></span></p>
+
+    <div th:if="${player.clan != null}">
+        <h2>部落信息</h2>
+        <p>部落名称: <span th:text="${player.clan.name}"></span></p>
+        <p>部落等级: <span th:text="${player.clan.clanLevel}"></span></p>
+        <img th:if="${player.clan.badgeUrls != null}" th:src="${player.clan.badgeUrls.small}" alt="部落徽章"/>
+    </div>
+    <div th:if="${player.heroes != null and !player.heroes.isEmpty()}">
+        <h3>英雄</h3>
+        <ul>
+            <li th:each="hero : ${player.heroes}" th:if="${hero.village == 'home'}">
+                <span th:text="${hero.name}"></span> (等级 <span th:text="${hero.level}"></span>/<span th:text="${hero.maxLevel}"></span>)
+                <span th:if="${hero.equipment != null and !hero.equipment.isEmpty()}">
+                        装备:
+                        <span th:each="eq, iterStat : ${hero.equipment}">
+                            <span th:text="${eq.name} + ' Lv' + ${eq.level}"></span>
+                            <span th:if="${!iterStat.last}">, </span>
+                        </span>
+                    </span>
+            </li>
+        </ul>
+    </div>
+</div>
+<div th:if="${player == null and errorMessage != null}">
+    <p style="color:red;" th:text="${errorMessage}"></p>
+</div>
+<div th:if="${player == null and errorMessage == null}">
+    <p>请输入玩家标签以搜索。</p>
+</div>
+
+<form th:action="@{/player}" method="get">
+    <input type="text" name="tag" placeholder="输入玩家标签 (#P123456)" />
+    <button type="submit">搜索</button>
+</form>
+</body>
+</html>
