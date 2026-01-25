@@ -1,0 +1,25 @@
+[window]
+# 1. 透明度：0.0 是完全透明，1.0 是不透明。建议 0.85 左右效果最好
+opacity = 0.80
+
+# 可选值: "OnlyLeft", "OnlyRight", "Both", "None"
+option_as_alt = "OnlyLeft"
+
+# 毛玻璃效果：仅在 macOS 和部分 Linux 环境下有效
+blur = true
+
+# 可选值: "Full" (默认), "None" (无标题栏), "Transparent" (透明标题栏), "Buttonless" (无按钮)
+decorations = "Buttonless"
+
+# 窗口边缘留白设置
+# padding = { x = 12, y = 12 }
+
+[font]
+# 需要安装字体 brew install --cask font-jetbrains-mono-nerd-font
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+size = 16.0
+
+[colors.primary]
+# 配合透明背景，建议使用深色调
+background = '#1d2021'
+foreground = '#ebdbb2'
