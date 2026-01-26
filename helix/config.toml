@@ -1,0 +1,29 @@
+# 主题设置
+theme = "base16_transparent"
+
+[editor]
+# 基础行为设置
+line-number = "relative"  # 开启相对行号
+cursorline = true         # 高亮当前行，方便视觉追踪
+color-modes = true        # 模式切换时状态栏变色
+auto-pairs = false        # 禁用自动补全括号
+idle-timeout = 200        # 加快菜单弹出速度（单位毫秒）
+
+[editor.cursor-shape]
+normal = "block"      # 普通模式使用块状光标
+insert = "bar"        # 插入模式使用条状光标 (类似 nvim)
+select = "underline"  # 选择模式使用下划线
+
+[editor.statusline]
+# 将状态栏模式改为大写
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.indent-guides]
+render = true             # 显示缩进对齐线
+character = "┊"
+
+[keys.normal]
+# 类似 nvim 的 Esc 行为
+# "esc" = ["collapse_selection", "keep_primary_selection"]
